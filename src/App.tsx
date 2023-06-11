@@ -536,9 +536,9 @@ const CONTRACT_ABI: any = [
 		"stateMutability": "view",
 		"type": "function"
 	}
-]; // Replace with your contract ABI
+]; 
 
-const CONTRACT_ADDRESS = "0xb00FCA39f7a2332508C5fDe9503C2021DEe524c7"; // Replace with your contract address
+const CONTRACT_ADDRESS = "0xb00FCA39f7a2332508C5fDe9503C2021DEe524c7"; 
 
 
 const App: React.FC = () => {
