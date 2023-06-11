@@ -18,6 +18,15 @@ export const RentToken: React.FC<RentTokenProps> = ({ contract, account }) => {
     }
   };
 
+  const buttonStyle = {
+    backgroundColor: "#4CAF50",
+    color: "white",
+    padding: "10px 20px",
+    borderRadius: "4px",
+    cursor: "pointer",
+    fontSize: "16px",
+  };
+
   return (
     <div>
       <h2>Rent ESTATE Token</h2>
@@ -27,7 +36,7 @@ export const RentToken: React.FC<RentTokenProps> = ({ contract, account }) => {
         value={tokenId}
         onChange={(e) => setTokenId(e.target.value)}
       />
-      <button onClick={rent}>Rent Token</button>
+      <button onClick={rent} style={buttonStyle}>Rent Token</button>
       {message && <p>{message}</p>}
     </div>
   );

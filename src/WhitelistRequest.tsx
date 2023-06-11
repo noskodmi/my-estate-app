@@ -18,10 +18,19 @@ export const WhitelistRequest: React.FC<WhitelistRequestProps> = ({ contract, ac
     }
   };
 
+  const buttonStyle = {
+    backgroundColor: "#4CAF50",
+    color: "white",
+    padding: "10px 20px",
+    borderRadius: "4px",
+    cursor: "pointer",
+    fontSize: "16px",
+  };
+
   return (
     <div>
       <h2>Request to be added to the whitelist</h2>
-      <button onClick={requestWhitelist}>Request</button>
+      <button onClick={requestWhitelist} style={buttonStyle}>Request</button>
       {message && <p>{message}</p>}
     </div>
   );

@@ -18,6 +18,15 @@ export const MintToken: React.FC<MintTokenProps> = ({ contract, account }) => {
     }
   };
 
+  const buttonStyle = {
+    backgroundColor: "#4CAF50",
+    color: "white",
+    padding: "10px 20px",
+    borderRadius: "4px",
+    cursor: "pointer",
+    fontSize: "16px",
+  };
+
   return (
     <div>
       <h2>Mint ESTATE Token</h2>
@@ -27,7 +36,7 @@ export const MintToken: React.FC<MintTokenProps> = ({ contract, account }) => {
         value={tokenURI}
         onChange={(e) => setTokenURI(e.target.value)}
       />
-      <button onClick={mint}>Mint Token</button>
+      <button onClick={mint} style={buttonStyle}>Mint Token</button>
       {message && <p>{message}</p>}
     </div>
   );
