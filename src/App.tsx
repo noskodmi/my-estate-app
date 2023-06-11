@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Web3 from "web3";
 import { WhitelistRequest } from "./WhitelistRequest";
 import { MintToken } from "./MintToken";
@@ -662,7 +662,12 @@ const App: React.FC = () => {
         <button onClick={connectWallet}>Connect Wallet</button>
         <Box>
         <Typography>
-          <a href="https://github.com/noskodmi/zkEstate-contracts" target="_blank" rel="noopener noreferrer">Check out project</a>
+          <a href="https://github.com/noskodmi/zkEstate-contracts" target="_blank" rel="noopener noreferrer">Check out Github</a>
+        </Typography>
+      </Box>
+      <Box>
+        <Typography>
+          <a href="https://master--idyllic-conkies-a6257f.netlify.app/" target="_blank" rel="noopener noreferrer">RentalNFT zkEstate market</a>
         </Typography>
       </Box>
       </div>
