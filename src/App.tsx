@@ -553,11 +553,6 @@ const App: React.FC = () => {
     { title: 'Rent' },
   ];
 
-  useEffect(() => {
-    initWeb3();
-    /* eslint-disable react-hooks/exhaustive-deps */
-  }, []);
-
   const getAccounts = async (): Promise<any> => {
     if (window.ethereum) {
       try {
@@ -586,7 +581,7 @@ const App: React.FC = () => {
 
       setWeb3(web3Instance);
       setContract(contractInstance);
-      setAccount(accounts[0]);
+      setAccount(accounts ? accounts[0] : null);
     } else {
       console.error("Ethereum provider not found");
     }
@@ -623,18 +618,56 @@ const App: React.FC = () => {
     }
   };
 
-  if (!web3 || !contract || !account) {
-    return (
-      <div>
-        <p>Loading...</p>
-        <button onClick={connectWallet}>Connect Wallet</button>
-      </div>
-    );
-  }
-
   const handleChange = (event: SelectChangeEvent<string>): void => {
     setNetwork(event.target.value);
   };
+
+  if (!web3 || !contract || !account) {
+    return (
+      <div>
+         <Box>
+            <FormControl >
+              <InputLabel id="network-select-label">Network</InputLabel>
+              <Select
+                labelId="network-select-label"
+                id="network-select"
+                value={network}
+                onChange={handleChange}
+              >
+                <MenuItem value="Optimism Goerli">Optimism Goerli</MenuItem>
+                <MenuItem value="Mantle Testnet">
+                  <ListItem component="a" href="https://explorer.testnet.mantle.xyz/address/0x35aB012bb736e915407877F7489b0651406D825d" button>
+                    Mantle Testnet, UI soon
+                  </ListItem>
+                </MenuItem>
+                <MenuItem value="Scroll Testnet">
+                  <ListItem component="a" href="https://blockscout.scroll.io/address/0xbefC6F3B404F2BF6B4c52E05c55BE15ee3Fe294d" button>
+                    Scroll Contract, UI soon
+                  </ListItem>
+                </MenuItem>
+                <MenuItem value="Gnosis testnet">
+                  <ListItem component="a" href="https://blockscout.chiadochain.net/address/0xFe8Fa89D8D861971F5E9061B3Cb90fcaE270338F" button>
+                    Gnosis Contract, UI soon
+                  </ListItem>
+                </MenuItem>
+                <MenuItem value="Tayko testnet">
+                  <ListItem component="a" href="https://explorer.test.taiko.xyz/address/0xbefC6F3B404F2BF6B4c52E05c55BE15ee3Fe294d" button>
+                    Tayko Contract, UI soon
+                  </ListItem>
+                </MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+        <p>Loading...</p>
+        <button onClick={connectWallet}>Connect Wallet</button>
+        <Box>
+        <Typography>
+          <a href="https://github.com/noskodmi/zkEstate-contracts" target="_blank" rel="noopener noreferrer">Check out project</a>
+        </Typography>
+      </Box>
+      </div>
+    );
+  }
 
   return (
 
