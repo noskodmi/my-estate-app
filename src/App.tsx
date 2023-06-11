@@ -554,6 +554,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     initWeb3();
+  /* eslint-disable react-hooks/exhaustive-deps */
   }, []);
 
   const getAccounts = async (): Promise<any> => {
