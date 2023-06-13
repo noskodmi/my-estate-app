@@ -12,13 +12,7 @@ export const WhitelistRequest: React.FC<WhitelistRequestProps> = ({ contract, ac
     try {
       // Implement the logic to request to be added to the whitelist.
       // For example, you can send a request to your server to save the address for review.
-      const response = await fetch(
-        `https://api.knowyourcat.id/v1/nfts/free-mint?address=${account}&chainId=${100}`
-      );
-      if(!response.ok){
-        throw new Error(JSON.stringify(await response.json()));
-      }
-      setMessage("Whitelist request has been sent." + JSON.stringify(response));
+      setMessage("Whitelist request has been sent.");
     } catch (error: any) {
       setMessage(`Error: ${error.message}`);
     }
